@@ -1,0 +1,46 @@
+version: "2.0"
+services:
+  nginx:
+    build:
+      context: ./nginx/
+    image: nginx:nginx-1.17.7
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./nginx/conf/certs/:/usr/local/nginx/conf/certs/:ro
+      - ./nginx/conf/nginx.conf:/usr/local/nginx/conf/nginx.conf:ro
+      - ./nginx/conf/servers/:/usr/local/nginx/conf/servers/:ro
+      - ./nginx/html/:/usr/local/nginx/html/:rw
+      - ./nginx/logs/:/usr/local/nginx/logs/:rw
+    links:
+      - php-fpm:php-fpm
+    networks:
+      - network
+
+  php-fpm:
+    build:
+      context: ./php/
+    image: php:php-fpm-7.4.1
+    container_name: php-fpm
+    expose:
+      - 9000
+    privileged: true
+    restart: always
+    volumes:
+      - ./php/crontab/cron/root:/var/spool/cron/root:rw
+      - ./php/rsyslogd/conf/rsyslog.conf:/etc/rsyslog.conf:ro
+      - ./php/supervisor/conf/supervisord.conf:/etc/supervisord.conf:ro
+      - ./php/supervisor/conf/supervisor.d/:/etc/supervisor.d/:ro
+      - ./php/supervisor/log/:/var/log/supervisor/:rw
+      - ./php/supervisor/run/:/run/supervisor/:rw
+      - ./php/php-fpm.d/www.conf:/usr/local/php/etc/php-fpm.d/www.conf:ro
+      - ./nginx/html/:/usr/local/nginx/html/:rw
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
