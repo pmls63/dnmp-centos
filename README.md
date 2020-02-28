@@ -9,6 +9,10 @@
 > PHP基础扩展 PDO-MySQL + PDO-PgSQL + OpenSSL + Mbstring + Curl + Iconv + XML + Ctype + JSon + BCmath
 > 
 > 编译安装 swoole + Redis + mongoDB + rabbitMQ + amqp
+>
+> 同时完美解决 docker 下，cronTab的使用及supervisor使用问题
+>
+
 
 ### 目录结构
 ```shell
