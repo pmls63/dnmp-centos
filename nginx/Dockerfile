@@ -2,6 +2,8 @@ FROM centos:latest
 
 MAINTAINER lightserver.cn <1083239138@qq.com>
 
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
 
 RUN dnf makecache \
