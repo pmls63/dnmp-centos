@@ -271,8 +271,7 @@ RUN /usr/local/php/bin/php -r "copy('https://getcomposer.org/installer', 'compos
     && chmod a+x composer-setup.php \
     && rm -f composer-setup.php \
     && mv composer.phar /usr/local/bin/composer \
-    && chmod a+x /usr/local/bin/composer \
-    && /usr/local/php/bin/php /usr/local/bin/composer config -g repo.packagist /usr/local/bin/composer https://mirrors.aliyun.com/composer/
+    && chmod a+x /usr/local/bin/composer
 
 COPY ./docker-entrypoint.sh /root/
 
