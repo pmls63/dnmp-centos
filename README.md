@@ -1,8 +1,20 @@
+## dnmp-centos
+>
+> 基于CentOS最新的CentOS-8作为基础镜像
+>
+> 源码编写安装 Nginx dockerfile 及 PHP dockerfile
+>
+> 并使用 docker-compose进行编排
+> 
+> PHP基础扩展 PDO-MySQL + PDO-PgSQL + OpenSSL + Mbstring + Curl + Iconv + XML + Ctype + JSon + BCmath
+> 
+> 编译安装 swoole + Redis + mongoDB + rabbitMQ + amqp
+
 ### 目录结构
 ```shell
 # pwd
 
-/path/to/DockerFile
+/path/to/project_dir
 
 # tree
 .
