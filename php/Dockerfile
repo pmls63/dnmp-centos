@@ -547,9 +547,3 @@ COPY ./docker-entrypoint.sh /root/
 ENTRYPOINT ["/root/docker-entrypoint.sh"]
 
 EXPOSE 9000
-
-COPY ./docker-entrypoint.sh /root/
-
-ENTRYPOINT ["/root/docker-entrypoint.sh"]
-
-EXPOSE 9000
