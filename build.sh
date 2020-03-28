@@ -2,7 +2,7 @@
 set -v
 
 # 设置crontab，使用shell生成crontab，避免docker容器无法生效
-echo "*/1 * * * * /bin/echo 'it works!' >> /root/test.log" > ./php/crontab/cron/root
+echo "*/1 * * * * /bin/echo 'it works' >> /root/test.log" > ./php/crontab/cron/root
 
 # 停止所有容器
 # docker stop $(docker ps -a -q)
